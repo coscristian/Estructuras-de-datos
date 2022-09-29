@@ -89,13 +89,19 @@ void main() {
     void insert_between_nodes(struct node **head, struct node *p, struct node *q, int n);
     void keep_ascending(struct node **head, int n);
 
+    int n;
+
+    head = NULL;
     
-    create_list(&head, 10);
-    write_list(head);
-    
-    // Insert 28 in the linked list (Must keep it in an ascending order)
-    keep_ascending(&head, 28);
-    printf("\n");
+    // Inserting values in the linked list (Must keep it in an ascending order)
+    printf("Type number to insert in linked list: ");
+    scanf("%d", &n);
+    while(n != 9999) {
+        keep_ascending(&head, n);
+        printf("Type number to insert in linked list: ");
+        scanf("%d", &n);
+    }
+
     write_list(head);
 
     printf("\n");
