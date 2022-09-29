@@ -8,6 +8,26 @@ struct node {
     struct node *next;
 };
 
+// Function to delete the node (p) in the linked list
+void delete_p(struct node **head, struct node *p, int *data) {
+    struct node *aux;
+    if(p == NULL)
+        printf("Can't be eliminated\n");
+    else{
+        *data = p -> info;
+        if(p == *head)
+            *head = p -> next;
+        else{
+            aux = *head;
+            while(aux->next != p)
+                aux = aux -> next;
+            aux -> next = p -> next;
+        }
+        free(p);
+    }
+}
+
+
 // Function to insert a int value and keep the linked list in an ascending order
 void keep_ascending(struct node **head, int n) {
     struct node *p, *q;
@@ -103,7 +123,18 @@ void main() {
     }
 
     write_list(head);
+    printf("\n");
 
+    // Delete node p
+    struct node *tercer;
+    tercer = head ->next ->next;
+    int data = 5;
+
+    delete_p(&head, tercer, &data);
+    write_list(head);
+
+    printf("\nEl dato eliminado fue: %d", data);
+    
     printf("\n");
     return 0;
 }
