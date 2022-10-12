@@ -88,6 +88,30 @@ struct node * exercise1(struct node *head, int x) {
     return NULL;
 }
 
+int exercise2(struct node *head) {
+    int count = 0;
+    while(head != NULL) {
+        count++;
+        head = head->next;
+    }
+    return count;
+}
+
+// Concatenate two linked list, given the head of the first and the head of the second
+void exercise3(struct node **head1, struct node *head2) {
+    struct node *aux1 = *head1;
+
+    if (aux1 != NULL){
+        while(aux1->next != NULL){
+            aux1 = aux1->next;
+        }
+        aux1->next = head2;
+    }else{
+        *head1 = head2;
+    }
+}
+
+
 int main() {
 
     struct node * exercise1();
@@ -130,10 +154,13 @@ int main() {
                     break;
                 }            
             case 2:     // Exercise 2
-                
+                printf("This linked list is composed by %d nodes", exercise2(head));
                 break;
-            case 3:     // Exercise 3
-                
+            case 3: ;     // Exercise 3
+                struct node *head2 = NULL;
+                createLinkedList(&head2);
+                exercise3(&head, head2);
+                showLinkedList(head);
                 break;
             case 4:     // Exercise 4
                 
