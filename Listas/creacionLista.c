@@ -27,7 +27,6 @@ void delete_p(struct node **head, struct node *p, int *data) {
     }
 }
 
-
 // Function to insert a int value and keep the linked list in an ascending order
 void keep_ascending(struct node **head, int n) {
     struct node *p, *q;
