@@ -111,7 +111,6 @@ void exercise3(struct node **head1, struct node *head2) {
     }
 }
 
-
 int main() {
 
     struct node * exercise1();
