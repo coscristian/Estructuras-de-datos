@@ -55,10 +55,15 @@ void createLinkedList(struct node **head) {
 }
 
 void showLinkedList(struct node *head){
-    while(head != NULL){
-        printf("%d - ", head->info);
-        head = head->next;
+    if (head == NULL) {
+        printf("Empty Linked List\n");
+    }else{
+        while(head != NULL){
+            printf("%d - ", head->info);
+            head = head->next;
+        }
     }
+    
 }
 
 void show_menu() {
@@ -111,11 +116,37 @@ void exercise3(struct node **head1, struct node *head2) {
     }
 }
 
+void separateLinkedList(struct node **head, struct node **q) {
+    int num = (*q)->info;
+    struct node *aux = *head;
+    
+    while(aux->next != NULL && aux->next->info != num)
+        aux = aux->next;
+
+    if(!(aux->next == NULL)) {
+        if(aux->next->info == num)
+            aux->next = NULL;
+    }
+}
+
+struct node * delete_all_nodes(struct node **head) {
+    if(*head != NULL) {
+        struct node *aux = *head;
+        while(aux != NULL) {
+            aux = aux->next;
+            free(head);
+            *head = aux;
+        }
+    }
+    return *head;
+}
+
 int main() {
 
     struct node * exercise1();
     void keep_ascending(struct node **head, int n);
     void insert_between_nodes(struct node **head, struct node *p, struct node *q, int n);
+    void separateLinkedList(struct node **head, struct node **q);
 
     // Create Linked list (Insert values)
     struct node *head = NULL;
@@ -162,13 +193,23 @@ int main() {
                 showLinkedList(head);
                 break;
             case 4:     // Exercise 4
+                printf("\n");
+                struct node *q = head->next->next->next;
+                separateLinkedList(&head, &q);
+
+                printf("\nFirst\n");
+                showLinkedList(head);
+
+                printf("\nSecond\n");
+                showLinkedList(q);
                 
                 break;
             case 5:     // Exercise 5
                 
                 break;
             case 6: // Exercise 6
-                
+                head = delete_all_nodes(&head);
+                showLinkedList(head);
                 break;
             case 7: // Exercise 7
                 
