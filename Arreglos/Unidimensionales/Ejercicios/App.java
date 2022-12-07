@@ -5,35 +5,35 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        
-        final int TAMANIO_ARRAY = 10;
-        int totalPrimos;
 
+        // Objetos necesarios
+        Menu menu = new Menu();
+        Vista vista = new Vista();
+        Ejercicios ejercicios = new Ejercicios(vista);
+
+        final int TAMANIO_ARRAY = 10;
         int[] arr = new int[TAMANIO_ARRAY];
         BigInteger[] primos = new BigInteger[TAMANIO_ARRAY];
-        
-        // Inicializar el arreglo
+
         arr = Metodos.inicializar(TAMANIO_ARRAY);
-        System.out.println("Inicialización");
-        for(int i = 0; i < arr.length; i++) {
-            System.out.printf("%d - ", arr[i]);
-        }
+        vista.mostrarArreglo("Inicialización", arr);
 
-        // Ejercicio 7 - Invertir Arreglo
-        Metodos.invertir(arr);
-        System.out.println("\nInvertido");
-        for(int i = 0; i < arr.length; i++) {
-            System.out.printf("%d - ", arr[i]);
-        }
+        int opcion = 0;
+
+        do {
+            opcion = menu.crearMenu();
+            switch (opcion) {
+                case 7:
+                    ejercicios.ejercicio7(arr);
+                    break;
+                case 71:
+                    ejercicios.ejercicio71(primos);
+                    break;
+                default:
+                    break;
+            }
+        } while (opcion != 0);
         
-        // Ejercicio 7 - Inicializar Primos
-        totalPrimos = Metodos.inicializarPrimos(primos, 10);
-        System.out.println("\nPrimos");
-        for(int i = 1; i < totalPrimos; i++) {
-            System.out.printf("%s - ", primos[i].toString());
-        } 
-        System.out.println();
-
         // Ejercicio 8 
         int[] arr2 = new int[4]; int cont = 1;
         
@@ -80,6 +80,9 @@ public class App {
             System.out.printf("El elemento se encuentra en la posición %d\n", posicionElemento);
         else
             System.out.println("El elemento no se encuentra en el array!!\n");
+
+
+
 
         sc.close();
     }
