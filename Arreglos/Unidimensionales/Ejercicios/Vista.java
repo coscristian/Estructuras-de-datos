@@ -1,6 +1,12 @@
 import java.math.BigInteger;
+import java.util.Scanner;
 
 public class Vista {
+    private Scanner sc;
+
+    public Vista(Scanner sc) {
+        this.sc = sc;
+    }
     
     public void mostrarArreglo(String mensaje, int[] arreglo) {
         System.out.printf("\n%s\n", mensaje);
@@ -19,6 +25,31 @@ public class Vista {
         } 
         System.out.println();
     }
+
+    public int leerEntero(String mensaje) {
+        System.out.printf("\n%s: ", mensaje);
+        int num = this.sc.nextInt();
+        return num;
+    }
+
+    public void mostrarMensaje(String mensaje) {
+        System.out.println(mensaje);
+    }
+
+    public void limpiarConsola() {
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
+    }
+
+    public void esperarEntrada() {
+        System.out.println("Presione ENTER para continuar");
+        sc.nextLine();
+    }
+
+    public void leerEntrada() {
+        sc.nextLine();
+    }
+
 
             
 

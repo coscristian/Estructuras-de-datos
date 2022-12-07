@@ -19,7 +19,7 @@ public class Menu {
         System.out.println("¿Qué opción desea seleccionar?: ");
         
         int opcion = sc.nextInt();
-        sc.close();
+        //sc.close();
         
         return opcion;
     }
