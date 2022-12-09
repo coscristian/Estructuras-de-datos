@@ -16,4 +16,28 @@ class Alcancia {
     + llenarAlcancia(): int
 }
 
+class Ahorro {
+    - unaAlcancia: Alcancia
+    - CINCUENTA: int = 50
+    - CIEN: int = 100
+    - DOSCIENTOS: int = 200
+    - QUINIENTOS: int = 500
+    - MIL: int = 1000
+    - totalMonedas: int[*]
+    + Ahorro()
+    + obtenerCantidadMonedasCincuenta(): int
+    + obtenerAhorroMonedasCincuenta(): int
+    + obtenerCantidadMonedasCien(): int
+    + obtenerAhorroMonedasCien(): int
+    + obtenerCantidadMonedasDoscientos(): int
+    + obtenerAhorroMonedasDoscientos(): int
+    + obtenerCantidadMonedasQuinientos(): int
+    + obtenerAhorroMonedasQuinientos(): int
+    + obtenerCantidadMonedasMil(): int
+    + obtenerAhorroMonedasMil(): int
+    + obtenerTotalAhorrado(): int
+}
+
+Moneda o-- Alcancia
+
 @endluml
