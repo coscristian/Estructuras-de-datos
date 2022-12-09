@@ -49,9 +49,4 @@ public class Vista {
     public void leerEntrada() {
         sc.nextLine();
     }
-
-
-            
-
-
 }
