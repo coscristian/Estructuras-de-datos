@@ -1,0 +1,19 @@
+@startuml ProyectoAlcancia 
+
+class Moneda {
+    - denominacionModena int[*] 
+    + Moneda()
+    - generarMoneda(): int
+    + obtenerMoneda(): int
+}
+
+class Alcancia {
+    - moneda: int[*]
+    - valorMoneda: Moneda
+    + Alcancia()
+    + obtenerAlcancia(): int
+    + inicializarAlcancia(): int
+    + llenarAlcancia(): int
+}
+
+@endluml
